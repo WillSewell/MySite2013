@@ -48,7 +48,7 @@ a:active {
 
 #header {
   padding-top: 0.3em;
-  height: 4em;
+  height: 4.5em;
   width: available;
   background-color: #444444;
   box-shadow: 0em 1.5em 1.5em -1em black;
@@ -66,6 +66,7 @@ a:active {
       display: table-cell; }
       #header ul li a {
         text-decoration: none;
+        text-shadow: 0px 2px 3px #000;
         padding: .2em 1em;
         font-family: "Esteban", serif;
         font-size: 3em; }

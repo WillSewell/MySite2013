@@ -63,7 +63,7 @@ a:active {
 
 #header {
     padding-top: 0.3em;
-    height: 4em;
+    height: 4.5em;
     width: available;
     background-color: $light-bg-colour;
     box-shadow: 0em 1.5em 1.5em -1em #000;
@@ -84,6 +84,7 @@ a:active {
 
             a {
                 text-decoration: none;
+                text-shadow: 0px 2px 3px #000;
                 padding: .2em 1em;
                 font-family: $title-font;
                 font-size: 3em;

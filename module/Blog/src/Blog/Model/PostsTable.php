@@ -1,8 +1,9 @@
 <?php
 
-namespace Album\Model;
+namespace Blog\Model;
 
 use Zend\Db\TableGateway\TableGateway;
+use Zend\Db\Sql\Select;
 
 class PostsTable
 {
@@ -15,14 +16,14 @@ class PostsTable
     
     public function getInitialPosts($number = 10)
     {
-        $this->getPostsFromOffset(0, $number);
+        return $this->getPostsFromOffset(0, $number);
     }
     
     public function getPostsFromOffset($offset, $number = 10)
     {
-        $this->tableGateway->select(function (Select $select) use ($offset, $number)
+        return $this->tableGateway->select(function (Select $select) use ($offset, $number)
         {
-            $select->order('DESC')->offset($offset)->limit($number);
+            $select->order('created DESC')->offset($offset)->limit($number);
         });
     }
 

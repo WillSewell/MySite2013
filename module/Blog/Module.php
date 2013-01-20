@@ -41,7 +41,7 @@ class Module
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new Blog());
-                    return new TableGateway('blog', $dbAdapter, null, $resultSetPrototype);
+                    return new TableGateway('posts', $dbAdapter, null, $resultSetPrototype);
                 },
             ),
         );
