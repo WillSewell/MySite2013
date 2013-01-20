@@ -1,0 +1,6 @@
+<?php foreach ($this->posts as $post): ?>
+<div id="<?php echo $post['post_id']; ?>" class="blog_post">
+    <h2><?php echo $post['title']; ?></h2>
+    <p><?php echo $post['content']; ?></p>
+<div>
+<?php endforeach; ?>
