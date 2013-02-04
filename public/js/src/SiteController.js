@@ -13,8 +13,10 @@ SiteController = {
                     pages: ['home', 'blog', 'contact'],
                     animation: 'fadeIn',
                     onChange: function(page) {
-                        // check if we are on the contact page
-                        if (page === 'contact') { 
+                        // check the page, and include the required files
+                        if (page === 'blog') {
+                            append_stylesheet('../css/styles.css');
+                        } else if (page === 'contact') { 
                             append_stylesheet('../css/contact.css');
                             require(['ContactController'], function() {
                                 ContactController.init();

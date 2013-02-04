@@ -5,7 +5,7 @@ require(['lib/jquery', 'lib/html5', 'lib/less'], function() {
         
         NAME_DEFAULT_VAL = 'Your name'; // refactor into class, make these fields?
         EMAIL_DEFAULT_VAL = 'Your email';
-        MSG_DEFAULT_VAL  = 'And your message';
+        MSG_DEFAULT_VAL = 'And your message';
         
         $('#main').pagify({
             pages: ['home', 'blog', 'contact'],
@@ -30,6 +30,8 @@ require(['lib/jquery', 'lib/html5', 'lib/less'], function() {
                             text_box_focus_out(MSG_DEFAULT_VAL, $(event.target));
                         });
                     });
+                } else if (page === 'blog') {
+                    append_stylesheet('../css/blog.css');
                 }
             }
         });

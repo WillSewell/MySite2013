@@ -1,10 +1,4 @@
-$bg-colour: #141414;
-$light-bg-colour: #444444;
-$text-colour: #EEEEEE;
-$highlight-colour: #B37A44;
-
-$title-font: 'Esteban', serif;
-$body-font: 'Merriweather', serif;
+@import "globals";
 
 body {
     color: $text-colour;
