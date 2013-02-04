@@ -15,7 +15,12 @@ hr {
   height: 0; }
 
 a:link {
-  color: #eeeeee; }
+  color: #eeeeee;
+  -o-transition: .2s;
+  -ms-transition: .2s;
+  -moz-transition: .2s;
+  -webkit-transition: .2s;
+  transition: .2s; }
 
 a:visited {
   color: #eeeeee; }
