@@ -2,7 +2,7 @@
 
 body {
     color: $text-colour;
-    background-color: $bg-colour;
+    background-image: url('../images/bg/broken_noise.png');
     font-family: $body-font;
     padding-bottom: 4em;
     
@@ -64,7 +64,7 @@ a:active {
     padding-top: 0.3em;
     height: 4.5em;
     width: available;
-    background-color: $light-bg-colour;
+    background-image: url('../images/bg/low_contrast_linen.png');
     box-shadow: 0em 1.5em 1.5em -1em #000;
     top: 0px;
     

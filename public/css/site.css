@@ -1,6 +1,6 @@
 body {
   color: #eeeeee;
-  background-color: #141414;
+  background-image: url("../images/bg/broken_noise.png");
   font-family: "Merriweather", serif;
   padding-bottom: 4em;
   margin: 0;
@@ -55,7 +55,7 @@ a:active {
   padding-top: 0.3em;
   height: 4.5em;
   width: available;
-  background-color: #444444;
+  background-image: url("../images/bg/low_contrast_linen.png");
   box-shadow: 0em 1.5em 1.5em -1em black;
   top: 0px; }
   #header ul {
