@@ -1,5 +1,3 @@
-Here is <a href="<?php echo $this->basePath('blog/atom'); ?>">the atom feed</a>, and here is the HTML:
-<div id="posts">
 <?php foreach ($this->posts as $post): ?>
     <div id="<?php echo $post->id; ?>" class="blog_post">
         <h2><?php echo $post->title; ?></h2>
@@ -8,4 +6,3 @@ Here is <a href="<?php echo $this->basePath('blog/atom'); ?>">the atom feed</a>,
         <hr />
     <div>
 <?php endforeach; ?>
-</div>

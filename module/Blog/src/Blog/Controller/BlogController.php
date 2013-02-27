@@ -25,7 +25,7 @@ class BlogController extends AbstractActionController
         return $viewModel;
     }
     
-    public function getMorePostsAction($offet)
+    public function getMorePostsAction($offet = 5)
     {
         $viewModel = new ViewModel(array(
             'posts' => $this->getPostsTable()->getPostsFromOffset($offet),

@@ -12,6 +12,9 @@ SiteController = {
                         // check the page, and include the required files
                         if (page === 'blog') {
                             append_stylesheet('../css/styles.css');
+                            require(['BlogController'], function() {
+                                BlogController.init();
+                            });
                         } else if (page === 'contact') { 
                             append_stylesheet('../css/contact.css');
                             require(['ContactController'], function() {
