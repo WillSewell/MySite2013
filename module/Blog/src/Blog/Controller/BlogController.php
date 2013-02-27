@@ -19,15 +19,19 @@ class BlogController extends AbstractActionController
     public function indexAction()
     {
         $viewModel = new ViewModel(array(
-            'posts' => $this->getPostsTable()->getInitialPosts(10),
+            'posts' => $this->getPostsTable()->getInitialPosts(5),
         ));
         $viewModel->setTerminal(true); // disable layout
         return $viewModel;
     }
     
-    public function getMorePostsAction()
+    public function getMorePostsAction($offet)
     {
-        // send JSON list of more results so feed can keep refreshing with ajax
+        $viewModel = new ViewModel(array(
+            'posts' => $this->getPostsTable()->getPostsFromOffset($offet),
+        ));
+        $viewModel->setTerminal(true); // disable layout
+        return $viewModel;
     }
     
     public function getPostsTable()
@@ -51,12 +55,13 @@ class BlogController extends AbstractActionController
         
         $feed = new Feed;
         $feed->setTitle("Will Sewell's Blog");
+        $feed->setDescription("Will Sewell's blog");
         $feed->setLink($domain . 'blog');
         $feed->setFeedLink($domain . 'blog/atom', 'atom');
         $feed->addAuthor($author);
         $feed->setDateModified(time());
         
-        $posts = $this->getPostsTable()->getInitialPosts(10);
+        $posts = $this->getPostsTable()->getInitialPosts(5);
         foreach ($posts as $post) {
             $entry = $feed->createEntry();
             $entry->setTitle($post->title);
@@ -64,10 +69,13 @@ class BlogController extends AbstractActionController
             $entry->addAuthor($author);
             $entry->setDateModified(date_create($post->modified));
             $entry->setDateCreated(date_create($post->created));
+            $entry->setDescription('A post by Will Sewell.');
             $entry->setContent($post->content);
             $feed->addEntry($entry);
         }
-        $feedModel = new FeedModel(); PROBLEM HERE - NEED TO SET RENDER TO FEED
+        $feed->export('atom');
+        
+        $feedModel = new FeedModel();
         $feedModel->setFeed($feed);
         return $feedModel;
     }
