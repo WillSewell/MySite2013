@@ -1,5 +1,8 @@
 SiteController = {
     init: function() {
+        require.config({
+            urlArgs: "bust=" + Math.floor((Math.random()*100)+1) // CACHEBUSTER - REMOVE IN PROD
+        });
         require(['lib/jquery', 'lib/html5', 'lib/less'], function() {
             require(['lib/pagify', 'site_listeners'], function() {
                 $(window).scroll(sticky_nav_listener);

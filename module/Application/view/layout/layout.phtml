@@ -3,38 +3,31 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle('Will Sewell')
-                        ->setSeparator(' - ')
-                        ->setAutoEscape(false) ?>
+<?php
+echo $this->headTitle('Will Sewell')
+          ->setSeparator(' - ')
+          ->setAutoEscape(false);
 
-        <?php echo $this->headMeta()
-                        ->appendName('viewport', 
-                                     'width=device-width, initial-scale=1.0') ?>
+echo $this->headMeta()
+          ->appendName('viewport', 'width=device-width, initial-scale=1.0');
 
-        <!-- styles -->
-        <?php 
-            echo $this->headLink(array(
-                'rel'  => 'shortcut icon',
-                'type' => 'image/vnd.microsoft.icon',
-                'href' => $this->basePath() . '/images/favicon.ico'
-            ))->prependStylesheet(
-                $this->basePath() . '/css/site.css'
-            )->prependStylesheet(
-                'http://fonts.googleapis.com/css?family=Esteban'
-            )->prependStylesheet(
-                'http://fonts.googleapis.com/css?family=Merriweather'
-            );
-        ?>
+// styles
+echo $this->headLink(array(
+    'rel'  => 'shortcut icon',
+    'type' => 'image/vnd.microsoft.icon',
+    'href' => $this->basePath() . '/images/favicon.ico'
+))->prependStylesheet($this->basePath() . '/css/site.css')
+  ->prependStylesheet('http://fonts.googleapis.com/css?family=Esteban')
+  ->prependStylesheet('http://fonts.googleapis.com/css?family=Merriweather');
 
-        <!-- Scripts -->
-        <?php
-            $this->headScript()->setAllowArbitraryAttributes(true);
-            echo $this->headScript()->prependFile(
-                $this->basePath() . '/js/src/lib/require.js',
-                'text/javascript', 
-                array('data-main' => $this->basePath() . 'js/src/SiteController')
-            ) 
-        ?>
+// scripts
+$this->headScript()->setAllowArbitraryAttributes(true);
+echo $this->headScript()->prependFile(
+    $this->basePath() . '/js/src/lib/require.js',
+    'text/javascript', 
+    array('data-main' => $this->basePath() . 'js/src/SiteController')
+);
+?>
 
     </head>
     <body>
@@ -47,13 +40,9 @@
                 </ul>
             </div>
             <div id="main">
-                <?php echo $this->content; ?>
-                <hr />
-                <footer>
-                    <p>&copy; 2012 by William Sewell. <?php echo $this->translate('All rights reserved.') ?></p>
-                </footer>
-            </div> <!-- /container -->
-            <?php echo $this->inlineScript() ?>
+<?php echo $this->content; ?>
+            </div>
+<?php echo $this->inlineScript() ?>
         </div>
     </body>
 </html>
