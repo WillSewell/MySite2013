@@ -25,10 +25,13 @@ class BlogController extends AbstractActionController
         return $viewModel;
     }
     
-    public function getMorePostsAction($offet = 5)
+    public function getMorePostsAction()
     {
         $viewModel = new ViewModel(array(
-            'posts' => $this->getPostsTable()->getPostsFromOffset($offet),
+            'posts' => $this->getPostsTable()->getPostsFromOffset(
+                    intval($this->params()->fromRoute('arg', 0)),
+                    5
+            ),
         ));
         $viewModel->setTerminal(true); // disable layout
         return $viewModel;

@@ -11,9 +11,10 @@ return array(
             'blog' => array(
                 'type' => 'segment',
                 'options' => array(
-                    'route' => '/blog[/:action]',
+                    'route' => '/blog[/:action][/:arg]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'arg' => '[a-zA-Z0-9_-]*',
                     ),
                     'defaults' => array(
                         'controller' => 'Blog\Controller\Blog',
