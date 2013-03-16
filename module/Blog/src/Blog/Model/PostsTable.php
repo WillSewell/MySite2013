@@ -26,5 +26,4 @@ class PostsTable
             $select->order('created DESC')->offset($offset)->limit($number);
         });
     }
-
 }
