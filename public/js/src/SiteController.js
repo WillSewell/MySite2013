@@ -14,6 +14,9 @@ SiteController = {
                         // check the page, and include the required files
                         if (page === 'blog') {
                             SiteController.append_stylesheet('../css/styles.css');
+                            if (typeof BlogController !== 'undefined') {
+                                BlogController.areMorePosts = true;
+                            }
                             require(['BlogController'], function() {
                                 BlogController.init();
                             });
