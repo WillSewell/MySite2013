@@ -11,6 +11,7 @@ SiteController = {
                     pages: ['home', 'blog', 'contact'],
                     animation: 'fadeIn',
                     onChange: function(page) {
+                        window.scrollTo(0, 0);
                         // check the page, and include the required files
                         if (page === 'blog') {
                             SiteController.append_stylesheet('../css/styles.css');
