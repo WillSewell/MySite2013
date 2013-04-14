@@ -8,5 +8,8 @@ chdir(dirname(__DIR__));
 // Setup autoloading
 require 'init_autoloader.php';
 
+// Set global PHP settings
+date_default_timezone_set('Australia/Sydney');
+
 // Run the application!
 Zend\Mvc\Application::init(require 'config/application.config.php')->run();

@@ -1,0 +1,48 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<?php
+echo $this->headTitle('Will Sewell')
+          ->setSeparator(' - ')
+          ->setAutoEscape(false);
+
+echo $this->headMeta()
+          ->appendName('viewport', 'width=device-width, initial-scale=1.0');
+
+// styles
+echo $this->headLink(array(
+    'rel'  => 'shortcut icon',
+    'type' => 'image/vnd.microsoft.icon',
+    'href' => $this->basePath() . '/images/favicon.ico'
+))->prependStylesheet($this->basePath() . '/css/site.css')
+  ->prependStylesheet('http://fonts.googleapis.com/css?family=Esteban')
+  ->prependStylesheet('http://fonts.googleapis.com/css?family=Merriweather');
+
+// scripts
+$this->headScript()->setAllowArbitraryAttributes(true);
+echo $this->headScript()->prependFile(
+    $this->basePath() . '/js/src/lib/require.js',
+    'text/javascript', 
+    array('data-main' => $this->basePath() . 'js/src/SiteController')
+);
+?>
+
+    </head>
+    <body>
+        <div id="page">
+            <div id="header">
+                <ul>
+                    <li><a href="#home" id="home_link">Will Sewell</a></li>
+                    <li><a href="#blog" id="blog_link">Blog</a></li>
+                    <li><a href="#contact" id="contact_link">Contact</a></a></li>
+                </ul>
+            </div>
+            <div id="main">
+<?php echo $this->content; ?>
+            </div>
+<?php echo $this->inlineScript() ?>
+        </div>
+    </body>
+</html>

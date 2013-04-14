@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="cleanup">
+    <target name="prepare">
+        <delete dir="./build" />
+        <mkdir dir="./build/extracted" />
+    </target>
+    <target name="build" depends="prepare">
+        <copy todir="build/extracted">
+            <fileset dir=".">
+                <include name="**" />
+                <exclude name='composer.*' />
+                <exclude name=".**" />
+                <exclude name="data/cache/*" />
+                <exclude name="config/**" />
+                <exclude name="build**" />
+                <exclude name="nbproject/" />
+            </fileset>
+        </copy>
+        <copy todir="build/extracted/config">
+            <filterchain>
+                <replaceregexp>
+                    <regexp pattern="mysql:dbname=mysite_blog;host=localhost"
+                            replace="mysql:dbname=mysite_blog;host=localhost"
+                    />
+                    <regexp pattern="'password' => 'broomcotc',"
+                            replace="'password' => 'broomcotm',"
+                    />
+                </replaceregexp>
+            </filterchain>
+            <fileset dir="config">
+                <include name="**" />
+            </fileset>
+        </copy>
+    </target>
+    <target name="dist" depends="build">
+        <tar basedir="build/extracted" destfile="build/build.tar.gz" compression="gzip" />
+    </target>
+    <target name="cleanup" depends="dist">
+        <delete dir="./build/extracted" />
+    </target>
+</project>

@@ -27,6 +27,9 @@ echo $this->headScript()->prependFile(
     'text/javascript', 
     array('data-main' => $this->basePath() . 'js/src/SiteController')
 );
+
+// analytics tracking
+include_once("analyticstracking.phtml");
 ?>
 
     </head>

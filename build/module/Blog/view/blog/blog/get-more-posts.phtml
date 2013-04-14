@@ -1,0 +1,8 @@
+<?php foreach ($this->posts as $post): ?>
+    <div id="<?php echo $post->id; ?>" class="blog_post">
+        <h2><?php echo $post->title; ?></h2>
+        <p><?php echo $post->content; ?></p>
+        <p class="blog_post_date">Last updated: <?php echo $post->modified; ?></p>
+        <hr />
+    </div>
+<?php endforeach; ?>
